@@ -1,6 +1,3 @@
-
-
-
 get_ipython().system('pip install yfinance')
 get_ipython().system('pip install pandas')
 
