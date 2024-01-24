@@ -1,14 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[1]:
 
 
 get_ipython().system('pip install yfinance')
 get_ipython().system('pip install pandas')
 
-
-# In[2]:
 
 
 get_ipython().system('pip install yfinance')
@@ -17,8 +12,6 @@ get_ipython().system('pip install requests')
 get_ipython().system('pip install bs4')
 get_ipython().system('pip install plotly')
 
-
-# In[4]:
 
 
 import yfinance as yf
@@ -29,26 +22,19 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 
-# In[5]:
 
 
 tesla=yf.Ticker("TSLA")
 
 
-# In[6]:
-
 
 tesla_data=tesla.history(period="max")
 
-
-# In[7]:
 
 
 tesla_data.reset_index(inplace=True)
 tesla_data.head(5)
 
-
-# In[135]:
 
 
 get_ipython().system('pip3 install requests')
@@ -65,13 +51,6 @@ else:
 soup_tesla = BeautifulSoup(html_data, 'html.parser')
 
 
-# In[ ]:
-
-
-
-
-
-# In[158]:
 
 
 url_tesla = "https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
@@ -100,19 +79,7 @@ tesla_revenue = pd.DataFrame(data_tesla)
 tesla_revenue.tail()
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
@@ -124,20 +91,12 @@ tesla_revenue.tail()
 gme = yf.Ticker("GME")
 
 
-# In[160]:
-
 
 gme_data = gme.history(period="max")
 
 
-# In[161]:
-
-
 gme_data.reset_index(inplace=True)
 gme_data.head()
-
-
-# In[162]:
 
 
 get_ipython().system('pip3 install requests')
@@ -147,9 +106,6 @@ url = "https://www.macrotrends.net/stocks/charts/GME/gamestop/revenue?utm_medium
 html_data = requests.get(url).text
 
 
-# In[163]:
-
-
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
@@ -157,9 +113,6 @@ response = requests.get(url, headers=headers)
 html_data = response.text
 
 soup = BeautifulSoup(html_data)
-
-
-# In[164]:
 
 
 data = []
@@ -175,33 +128,13 @@ for table in soup.find_all("table"):
 
 gme_revenue = pd.DataFrame(data)
 
-
-# In[165]:
-
-
 gme_revenue.tail()
 
 
-# In[179]:
-
-
 print(tesla_data.columns)
 
 
-# In[180]:
-
-
 print(tesla_data.columns)
-
-
-# In[182]:
 
 
 print(tesla_data.index.name)
-
-
-# In[ ]:
-
-
-
-
